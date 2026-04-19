@@ -39,7 +39,7 @@ If you use this repository, please cite the survey manuscript. A public DOI or f
 
 ![Roadmap timeline of Mamba-based time-series forecasting methods](figs/mamba-ts.png)
 
-Figure 1 from the survey traces Mamba-based time-series forecasting methods across pure selective-SSM, bidirectional/multi-directional, and hybrid tracks. The survey also organizes these methods along five design axes:
+Mamba-based time-series forecasting methods involve pure selective-SSM, bidirectional/multi-directional, and hybrid tracks with key design axes:
 
 - **Tokenization**: pointwise, patch, channel-as-token, event-token, or multi-scale tokenization.
 - **Channel strategy**: channel-independent (CI), channel-dependent/channel-mixing (CD), channel-correlated (CC), or dual time/channel mixers.
@@ -154,18 +154,6 @@ Specialized models are driven by an application domain or deployment constraint 
 | [Mamba4Cast](https://arxiv.org/abs/2410.09385) | 2024 | Zero-shot forecasting | Mamba | CI | Synthetic pretraining; GIFT-Eval | [Code](https://github.com/automl/mamba4cast) |
 | [SpaceTime](https://arxiv.org/abs/2303.09489) | 2023 | Foundation / pre-Mamba SSM | SSM | CI | Foundation-style SSM forecaster | [Code](https://github.com/HazyResearch/spacetime) |
 
-## Implementation Registry
-
-The survey catalogs public implementations grouped by taxonomy branch. PyTorch is the dominant framework, and most released Mamba-family forecasters depend directly or transitively on `mamba_ssm` for fused selective-scan kernels.
-
-| Branch | Released implementations | Announced / unavailable in survey metadata |
-| --- | --- | --- |
-| Pure selective-SSM | SpaceTime, S-Mamba, Is-Mamba, MambaTS, SAMBA, DTMamba, TimeMachine, SiMBA-TS, C-Mamba, CMamba, MambaStock, DGMamba, Mamba4Cast, Mamba+UQ | CMMamba, RLMamba, FedRMamba, GCMNet |
-| Bidirectional / multi-directional | Bi-Mamba, Bi-Mamba+, CIBGM, Graph-Mamba, ms-Mamba | Chimera, BiG-Mamba, HSTM, DMSTCI-BiMamba |
-| Hybrid | MAT, SST, FMamba, MambaFormer, SiMBA, MambaMixer, UmambaTSF, Affirm, KARMA, CMDMamba, HyMaTE | DIMformer, Attention Mamba, TimeMamba, CDTF-Mamba |
-| Foundation / zero-shot | SpaceTime, Mamba4Cast | - |
-
-Reproducibility caveats from the survey: kernel choice, scan precision, RevIN usage, lookback length, patching granularity, decomposition preprocessing, and token-axis choice can all change reported numbers. Like-for-like comparisons should report these details explicitly.
 
 
 ## Datasets and Benchmarks
@@ -203,35 +191,6 @@ Reproducibility caveats from the survey: kernel choice, scan precision, RevIN us
 | Params / FLOPs | Efficiency | Model size and theoretical compute | Hardware-independent architecture comparison |
 | Latency | Efficiency | Forward-pass wall time at fixed lookback and horizon | Deployment and long-context serving cost |
 
-## Practical Guidelines
-
-The survey distills the literature into a data-driven selector for choosing a Mamba variant.
-
-| Data regime | Recommended starting point | Rationale |
-| --- | --- | --- |
-| Small channel count, long lookback, weak cross-channel coupling | Pure selective-SSM forecasters such as TimeMachine, MambaTS, DTMamba | Linear-in-length recurrence is useful and channel mixing is less critical |
-| Large channel count with stable cross-channel structure | S-Mamba, MambaMixer, C-Mamba, CMamba, CMMamba | Electricity, Traffic, and PEMS reward explicit channel modeling |
-| Strong trend/seasonality or broadband spectra | KARMA, Affirm, TimeMamba, CDTF-Mamba | Signal decomposition or Fourier modules can isolate structure before recurrence |
-| Short lookback with strong local pattern mixing | MAT, SST, MambaFormer, FMamba | Attention or Transformer experts can dominate when long-context savings are less important |
-| Spatial graph, domain shift, federated, foundation, or zero-shot regime | Specialized models such as Chimera, BiG-Mamba, DGMamba, FedRMamba, Mamba4Cast | Deployment constraints or exogenous structure dominate generic backbone choice |
-
-Recommended reporting defaults from the survey:
-
-- Report lookback length, horizon, patch length, token axis, RevIN status, kernel implementation, precision, state dimension, expansion factor, optimizer, and training budget.
-- Use `L in {512, 1024}` when long history plausibly helps; reporting only `L=96` understates the linear-scan advantage.
-- Compare fused Mamba kernels against optimized attention kernels; PyTorch reference selective scans are not a fair speed baseline.
-- Ablate decomposition, patching, and channel-mixing separately before attributing gains to the Mamba block itself.
-
-## Contributing
-
-Contributions are welcome if they keep the repository aligned with the survey taxonomy.
-
-- Add papers under the correct taxonomy branch and keep the `Paper / Method`, `Year`, `Category`, `Venue / Source`, and `Code` columns populated.
-- Prefer official paper, DOI, arXiv, project, dataset, and code links.
-- Mark unavailable code as `announced` only when the paper explicitly announces a forthcoming release.
-- Add datasets with domain, length, channel count, sampling frequency, and representative methods.
-- Add metrics with the metric family, what it measures, and when it is suitable.
-- Avoid unverified DOI claims, speculative publication status, or stale repository links.
 
 ## Disclaimer
 

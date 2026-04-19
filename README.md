@@ -37,9 +37,9 @@ If you use this repository, please cite the survey manuscript. A public DOI or f
 
 ## Taxonomy
 
-![Hierarchical taxonomy of Mamba-based time-series forecasting methods](figs/mamba-ts-taxonomy.png)
+![Roadmap timeline of Mamba-based time-series forecasting methods](figs/mamba-ts.png)
 
-The survey organizes Mamba-based time-series forecasting along five design axes:
+Figure 1 from the survey traces Mamba-based time-series forecasting methods across pure selective-SSM, bidirectional/multi-directional, and hybrid tracks. The survey also organizes these methods along five design axes:
 
 - **Tokenization**: pointwise, patch, channel-as-token, event-token, or multi-scale tokenization.
 - **Channel strategy**: channel-independent (CI), channel-dependent/channel-mixing (CD), channel-correlated (CC), or dual time/channel mixers.
@@ -54,20 +54,20 @@ These papers define the SSM lineage, Mamba backbone, and time-series baselines u
 
 | Paper | Year | Category | Venue / Source | Code |
 | --- | --- | --- | --- | --- |
-| HiPPO: Recurrent Memory with Optimal Polynomial Projections | 2020 | SSM foundation | NeurIPS | - |
-| Efficiently Modeling Long Sequences with Structured State Spaces | 2022 | S4 / structured SSM | ICLR | - |
-| Simplified State Space Layers for Sequence Modeling | 2023 | S5 / simplified SSM | ICLR | - |
+| [HiPPO: Recurrent Memory with Optimal Polynomial Projections](https://arxiv.org/abs/2008.07669) | 2020 | SSM foundation | NeurIPS | - |
+| [Efficiently Modeling Long Sequences with Structured State Spaces](https://arxiv.org/abs/2111.00396) | 2022 | S4 / structured SSM | ICLR | - |
+| [Simplified State Space Layers for Sequence Modeling](https://arxiv.org/abs/2208.04933) | 2023 | S5 / simplified SSM | ICLR | - |
 | [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) | 2023 | Selective SSM | arXiv | [Code](https://github.com/state-spaces/mamba) |
-| Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality | 2024 | Mamba-2 / SSD | ICML | [Code](https://github.com/state-spaces/mamba) |
-| Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting | 2021 | Efficient Transformer baseline | AAAI | [Code](https://github.com/zhouhaoyi/Informer2020) |
-| Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting | 2021 | Decomposition Transformer baseline | NeurIPS | [Code](https://github.com/thuml/Autoformer) |
-| A Time Series is Worth 64 Words: Long-Term Forecasting with Transformers | 2023 | Patch Transformer baseline | ICLR | [Code](https://github.com/yuqinie98/PatchTST) |
-| iTransformer: Inverted Transformers Are Effective for Time Series Forecasting | 2024 | Channel-as-token baseline | ICLR | [Code](https://github.com/thuml/iTransformer) |
-| Are Transformers Effective for Time Series Forecasting? | 2023 | Linear baseline | AAAI | [Code](https://github.com/cure-lab/LTSF-Linear) |
-| N-BEATS: Neural Basis Expansion Analysis for Interpretable Time Series Forecasting | 2020 | MLP / basis expansion baseline | ICLR | - |
-| N-HiTS: Neural Hierarchical Interpolation for Time Series Forecasting | 2023 | Multi-rate baseline | AAAI | [Code](https://github.com/Nixtla/neuralforecast) |
-| TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis | 2023 | 2D temporal baseline | ICLR | [Code](https://github.com/thuml/TimesNet) |
-| Reversible Instance Normalization for Accurate Time-Series Forecasting Against Distribution Shift | 2022 | Normalization | ICLR | [Code](https://github.com/ts-kim/RevIN) |
+| [Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality](https://arxiv.org/abs/2405.21060) | 2024 | Mamba-2 / SSD | ICML | [Code](https://github.com/state-spaces/mamba) |
+| [Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting](https://arxiv.org/abs/2012.07436) | 2021 | Efficient Transformer baseline | AAAI | [Code](https://github.com/zhouhaoyi/Informer2020) |
+| [Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting](https://arxiv.org/abs/2106.13008) | 2021 | Decomposition Transformer baseline | NeurIPS | [Code](https://github.com/thuml/Autoformer) |
+| [A Time Series is Worth 64 Words: Long-Term Forecasting with Transformers](https://arxiv.org/abs/2211.14730) | 2023 | Patch Transformer baseline | ICLR | [Code](https://github.com/yuqinie98/PatchTST) |
+| [iTransformer: Inverted Transformers Are Effective for Time Series Forecasting](https://arxiv.org/abs/2310.06625) | 2024 | Channel-as-token baseline | ICLR | [Code](https://github.com/thuml/iTransformer) |
+| [Are Transformers Effective for Time Series Forecasting?](https://arxiv.org/abs/2205.13504) | 2023 | Linear baseline | AAAI | [Code](https://github.com/cure-lab/LTSF-Linear) |
+| [N-BEATS: Neural Basis Expansion Analysis for Interpretable Time Series Forecasting](https://arxiv.org/abs/1905.10437) | 2020 | MLP / basis expansion baseline | ICLR | - |
+| [N-HiTS: Neural Hierarchical Interpolation for Time Series Forecasting](https://arxiv.org/abs/2201.12886) | 2023 | Multi-rate baseline | AAAI | [Code](https://github.com/Nixtla/neuralforecast) |
+| [TimesNet: Temporal 2D-Variation Modeling for General Time Series Analysis](https://arxiv.org/abs/2210.02186) | 2023 | 2D temporal baseline | ICLR | [Code](https://github.com/thuml/TimesNet) |
+| [Reversible Instance Normalization for Accurate Time-Series Forecasting Against Distribution Shift](https://arxiv.org/abs/2103.01098) | 2022 | Normalization | ICLR | [Code](https://github.com/ts-kim/RevIN) |
 
 ## Pure Selective-SSM Forecasters
 
@@ -75,24 +75,24 @@ Pure forecasters replace the main forecasting backbone with Mamba or a closely r
 
 | Paper / Method | Year | Category | Venue / Source | Code |
 | --- | --- | --- | --- | --- |
-| Mamba Time Series Forecasting with Uncertainty Quantification | 2025 | Patch-based pure SSM; probabilistic head | MLST | [Code](https://github.com/PengchengWeifr/Mamba_TSF_UQ) |
+| [Mamba Time Series Forecasting with Uncertainty Quantification](https://doi.org/10.1088/2632-2153/adec3b) | 2025 | Patch-based pure SSM; probabilistic head | MLST | [Code](https://github.com/PessoaP/Mamba-ProbTSF) |
 | [RLMamba: Integrating Residual Learning With Mamba for Long-Term Time Series Forecasting](https://doi.org/10.1016/j.eswa.2025.127362) | 2025 | Residual pure SSM | Expert Systems with Applications | announced |
 | [FedRMamba: Federated Residual Mamba for Multivariate Time-Series Forecasting](https://doi.org/10.1145/3774904.3792712) | 2025 | Federated residual Mamba | WWW Companion | announced |
 | [GCMNet: A Global Context Mamba Network for Long-Term Time Series Forecasting](https://doi.org/10.1016/j.patcog.2026.113287) | 2026 | Global-context pure SSM | Pattern Recognition | announced |
-| Is Mamba Effective for Time Series Forecasting? / S-Mamba | 2025 | Channel-as-token pure SSM | Neurocomputing | [Code](https://github.com/wzhwzhwzh0921/S-D-Mamba) |
-| Is Mamba Effective for Time Series Forecasting? | 2024 | Negative / protocol study | Neurocomputing | [Code](https://github.com/wzhwzhwzh0921/S-D-Mamba) |
+| [Is Mamba Effective for Time Series Forecasting? / S-Mamba](https://arxiv.org/abs/2403.11144) | 2025 | Channel-as-token pure SSM | Neurocomputing | [Code](https://github.com/wzhwzhwzh0921/S-D-Mamba) |
+| [Is Mamba Effective for Time Series Forecasting?](https://arxiv.org/abs/2403.11144) | 2024 | Negative / protocol study | Neurocomputing | [Code](https://github.com/wzhwzhwzh0921/S-D-Mamba) |
 | [MambaTS: Improved Selective State Space Models for Long-Term Time Series Forecasting](https://arxiv.org/abs/2405.16440) | 2024 | VAST learned scan order | arXiv | [Code](https://github.com/XiudingCai/MambaTS-pytorch) |
-| [SAMBA: Simplified Mamba-Based Architecture for Time Series Forecasting](https://arxiv.org/abs/2410.03707) | 2024 | Gate-free Mamba block | arXiv | [Code](https://github.com/mshliang/SAMBA) |
-| [DTMamba: Dual Twin Mamba for Time Series Forecasting](https://arxiv.org/abs/2404.07336) | 2024 | Dual forward/reverse pure SSM | arXiv | [Code](https://github.com/lizyelon/DTMamba) |
-| TimeMachine: A Time Series is Worth 4 Mambas for Long-Term Forecasting | 2024 | Multi-scale pure SSM | ECAI | [Code](https://github.com/Atik-Ahamed/TimeMachine) |
-| [SiMBA-TS: Simplified Channel Mixing and Mamba for Long-Term Time Series Forecasting](https://arxiv.org/abs/2403.15360) | 2024 | Patch-based pure SSM with channel mixer | arXiv | [Code](https://github.com/badripatro/Simba) |
+| [SAMBA: Simplified Mamba with Disentangled Dependency Encoding for Long-Term Time Series Forecasting](https://arxiv.org/abs/2408.12068) | 2024 | Gate-free Mamba block | arXiv | [Code](https://github.com/mshliang/SAMBA) |
+| [DTMamba: Dual Twin Mamba for Time Series Forecasting](https://arxiv.org/abs/2405.07022) | 2024 | Dual forward/reverse pure SSM | arXiv | [Code](https://github.com/lizyelon/DTMamba) |
+| [TimeMachine: A Time Series is Worth 4 Mambas for Long-Term Forecasting](https://arxiv.org/abs/2403.09898) | 2024 | Multi-scale pure SSM | ECAI | [Code](https://github.com/Atik-Ahamed/TimeMachine) |
+| [SiMBA-TS: Simplified Channel Mixing and Mamba for Long-Term Time Series Forecasting](https://ieeexplore.ieee.org/document/10890315) | 2024 | Patch-based pure SSM with channel mixer | arXiv | [Code](https://github.com/badripatro/Simba) |
 | [C-Mamba: Channel Correlation Enhanced State Space Models for Multivariate Time Series Forecasting](https://arxiv.org/abs/2406.05316) | 2024 | Channel-correlation graph | arXiv | [Code](https://github.com/chenhan-y/C-Mamba) |
 | [CMamba: Channel Correlation Enhanced State Space Models for Multivariate Time Series Forecasting](https://arxiv.org/abs/2406.05316) | 2024 | Global cross-channel mixer | arXiv | [Code](https://github.com/zshhans/CMamba) |
 | [CMMamba: Channel Mixing Mamba for Time Series Forecasting](https://doi.org/10.1186/s40537-024-01001-9) | 2024 | Channel-mixing Mamba | Journal of Big Data | announced |
 | [MambaStock: Selective State Space Model for Stock Prediction](https://arxiv.org/abs/2402.18959) | 2024 | Finance pure SSM | arXiv | [Code](https://github.com/zshicode/MambaStock) |
-| DGMamba: Domain Generalization via Generalized State Space Model | 2024 | Domain-generalized Mamba | ACM MM | [Code](https://github.com/longshaocong/DGMamba) |
+| [DGMamba: Domain Generalization via Generalized State Space Model](https://arxiv.org/abs/2404.07794) | 2024 | Domain-generalized Mamba | ACM MM | [Code](https://github.com/longshaocong/DGMamba) |
 | [Mamba4Cast: Efficient Zero-Shot Time Series Forecasting with State Space Models](https://arxiv.org/abs/2410.09385) | 2024 | Zero-shot / foundation-style Mamba | arXiv | [Code](https://github.com/automl/mamba4cast) |
-| Effectively Modeling Time Series with Simple Discrete State Spaces | 2023 | Pre-Mamba SSM foundation forecaster | ICLR | [Code](https://github.com/HazyResearch/spacetime) |
+| [Effectively Modeling Time Series with Simple Discrete State Spaces](https://arxiv.org/abs/2303.09489) | 2023 | Pre-Mamba SSM foundation forecaster | ICLR | [Code](https://github.com/HazyResearch/spacetime) |
 
 ## Bidirectional and Multi-Directional Scans
 
@@ -102,15 +102,15 @@ This branch modifies Mamba's native unidirectional scan. Bidirectional scans imp
 | --- | --- | --- | --- | --- | --- |
 | [ms-Mamba: Multi-scale Mamba for Time-Series Forecasting](https://arxiv.org/abs/2504.07654) | 2025 | Multi-scale scan | Parallel scans + MLP | arXiv | [Code](https://github.com/airin/ms-Mamba) |
 | [BiG-Mamba: Bidirectional Graph and Mamba Modeling for Multivariate Time Series Forecasting](https://doi.org/10.1007/978-981-96-9946-9_26) | 2025 | Graph bidirectional scan | Forward + reverse + graph attention | LNCS / Springer | announced |
-| Hierarchical Information-Guided Spatio-Temporal Mamba for Stock Time Series Forecasting | 2025 | Spatio-temporal bidirectional Mamba | Spatial + temporal scans | Information Sciences | announced |
+| [Hierarchical Information-Guided Spatio-Temporal Mamba for Stock Time Series Forecasting](https://arxiv.org/abs/2503.11387) | 2025 | Spatio-temporal bidirectional Mamba | Spatial + temporal scans | Information Sciences | announced |
 | [Decomposed Multi-Scale Temporal-Channel Interaction with Bidirectional Mamba for Multivariate Time Series Forecasting](https://doi.org/10.2139/ssrn.5382999) | 2025 | Decomposed multi-scale bidirectional Mamba | Trend/seasonal branches | SSRN | announced |
 | [Bi-Mamba4TS: Bidirectional Mamba for Time Series Forecasting](https://arxiv.org/abs/2404.15772) | 2024 | Symmetric bidirectional scan | Forward + reverse concat | arXiv | [Code](https://github.com/llwwqq/Bi-Mamba) |
 | [Bi-Mamba+: Bidirectional Mamba for Time Series Forecasting](https://arxiv.org/abs/2404.15772) | 2024 | Bidirectional scan with SRA module | Forward + reverse concat | arXiv | [Code](https://github.com/llwwqq/Bi-Mamba-plus) |
 | [Bi-Mamba: Bidirectional Mamba for Time Series Forecasting](https://arxiv.org/abs/2404.15772) | 2024 | Univariate bidirectional variant | Shared encoder + projection | arXiv | [Code](https://github.com/llwwqq/Bi-Mamba) |
-| Channel Independence Bidirectional Gated Mamba With Interactive Recurrent Mechanism for Time Series Forecasting | 2024 | Bidirectional gated Mamba | Interactive recurrent gate | Neurocomputing | [Code](https://github.com/CIBGM/CIBGM) |
+| [Channel Independence Bidirectional Gated Mamba With Interactive Recurrent Mechanism for Time Series Forecasting](https://doi.org/10.1109/TIE.2025.3581279) | 2024 | Bidirectional gated Mamba | Interactive recurrent gate | Neurocomputing | [Code](https://github.com/CIBGM/CIBGM) |
 | [Mamba Meets Financial Markets: A Graph-Mamba Approach for Stock Price Prediction](https://arxiv.org/abs/2410.03707) | 2024 | Graph bidirectional Mamba | Forward + reverse + graph conv | arXiv | [Code](https://github.com/Ali-Meh619/SAMBA) |
-| TimeMachine: A Time Series is Worth 4 Mambas for Long-Term Forecasting | 2024 | Multi-resolution Mamba | 4 parallel branches + MLP | ECAI | [Code](https://github.com/Atik-Ahamed/TimeMachine) |
-| Chimera: Effectively Modeling Multivariate Time Series with 2-Dimensional State Space Models | 2024 | 2D joint-axis scan | Time x channel selective scan | NeurIPS | announced |
+| [TimeMachine: A Time Series is Worth 4 Mambas for Long-Term Forecasting](https://arxiv.org/abs/2403.09898) | 2024 | Multi-resolution Mamba | 4 parallel branches + MLP | ECAI | [Code](https://github.com/Atik-Ahamed/TimeMachine) |
+| [Chimera: Effectively Modeling Multivariate Time Series with 2-Dimensional State Space Models](https://arxiv.org/abs/2406.04320) | 2024 | 2D joint-axis scan | Time x channel selective scan | NeurIPS | announced |
 
 ## Hybrid Architectures
 
@@ -119,12 +119,12 @@ Hybrid models combine Mamba with modules that compensate for weaknesses of pure 
 | Paper / Method | Year | Category | Hybrid Component | Venue / Source | Code |
 | --- | --- | --- | --- | --- | --- |
 | [Cross-Domain Time-Frequency Mamba: A More Effective Model for Long-Term Time Series Forecasting](https://doi.org/10.1016/j.knosys.2026.115341) | 2026 | Time-frequency hybrid | Coupled time/frequency Mamba scans | Knowledge-Based Systems | announced |
-| Attention Mamba: Time Series Modeling with Adaptive Pooling Acceleration and Receptive Field Enhancements | 2025 | Attention hybrid | Adaptive pooling + attention + Mamba | IEEE Access | announced |
+| [Attention Mamba: Time Series Modeling with Adaptive Pooling Acceleration and Receptive Field Enhancements](https://arxiv.org/abs/2504.02013) | 2025 | Attention hybrid | Adaptive pooling + attention + Mamba | IEEE Access | announced |
 | [DIMformer: A Dynamic Inverted Transformer With Mamba-Cross-Variable Linear Attention for Multivariate Time Series Forecasting](https://doi.org/10.1109/ACCESS.2025.3645346) | 2025 | Attention hybrid | Mamba-cross-variable linear attention | IEEE Access | announced |
-| HyMaTE: A Hybrid Mamba and Transformer Model for EHR Representation Learning | 2025 | Healthcare attention hybrid | Mamba temporal encoder + Transformer channel mixer | ACM BCB | [Code](https://github.com/healthylaife/HyMaTE) |
-| Affirm: Interactive Mamba with Adaptive Fourier Filters for Long-Term Time Series Forecasting | 2025 | Fourier hybrid | Adaptive Fourier filters | AAAI | [Code](https://github.com/congyutao0725/AFFIRM) |
+| [HyMaTE: A Hybrid Mamba and Transformer Model for EHR Representation Learning](https://doi.org/10.1145/3765612.3767245) | 2025 | Healthcare attention hybrid | Mamba temporal encoder + Transformer channel mixer | ACM BCB | [Code](https://github.com/healthylaife/HyMaTE) |
+| [Affirm: Interactive Mamba with Adaptive Fourier Filters for Long-Term Time Series Forecasting](https://doi.org/10.1609/AAAI.V39I20.35463) | 2025 | Fourier hybrid | Adaptive Fourier filters | AAAI | [Code](https://github.com/congyutao0725/AFFIRM) |
 | [KARMA: A Multilevel Decomposition Hybrid Mamba Framework for Multivariate Long-Term Time Series Forecasting](https://arxiv.org/abs/2506.08939) | 2025 | Decomposition hybrid | STL-style multilevel decomposition | arXiv | [Code](https://github.com/yedadasd/KARMA) |
-| CMDMamba: Dual-Layer Mamba Architecture with Dual Convolutional Feed-Forward Networks for Efficient Financial Time Series Forecasting | 2025 | CNN hybrid | Depthwise and dilated convolutional FFNs | Knowledge-Based Systems | [Code](https://github.com/JadenZheng/CMDMamba) |
+| [CMDMamba: Dual-Layer Mamba Architecture with Dual Convolutional Feed-Forward Networks for Efficient Financial Time Series Forecasting](https://doi.org/10.3389/frai.2025.1599799) | 2025 | CNN hybrid | Depthwise and dilated convolutional FFNs | Frontiers in Artificial Intelligence | [Code](https://github.com/JadenZheng/CMDMamba) |
 | [TimeMamba: A Mamba-Based Long-Term Time Series Forecasting Method with Fourier Analysis](https://arxiv.org/abs/2502.03430) | 2025 | Frequency/CNN hybrid | Fourier branch + Mamba | arXiv | announced |
 | [Integration of Mamba and Transformer - MAT for Long-Short Range Time Series Forecasting with Application to Weather Dynamics](https://arxiv.org/abs/2409.08530) | 2024 | Attention hybrid | Mamba branch + Transformer branch | arXiv | [Code](https://github.com/mwxinnn/MAT) |
 | [SST: Multi-Scale Hybrid Mamba-Transformer Experts for Time Series Forecasting](https://arxiv.org/abs/2404.14757) | 2024 | Mixture-of-experts attention hybrid | Mamba/Transformer experts + sparse gate | arXiv | [Code](https://github.com/XiongxiaoXu/SST) |
@@ -141,37 +141,50 @@ Specialized models are driven by an application domain or deployment constraint 
 | Method | Year | Area | Backbone | Channel | Pretraining / Deployment | Code |
 | --- | --- | --- | --- | --- | --- | --- |
 | [BiG-Mamba](https://doi.org/10.1007/978-981-96-9946-9_26) | 2025 | Spatio-temporal | Bi-Mamba + graph | CC | - | announced |
-| Affirm | 2025 | Climate / weather | Mamba + FFT | CD | - | [Code](https://github.com/congyutao0725/AFFIRM) |
-| CMDMamba | 2025 | Finance | Mamba + CNN | CD | - | [Code](https://github.com/JadenZheng/CMDMamba) |
-| HSTM | 2025 | Finance / spatial | Spatial + temporal Mamba | CC | - | announced |
-| HyMaTE | 2025 | Healthcare / EHR | Mamba + Transformer | CC | - | [Code](https://github.com/healthylaife/HyMaTE) |
+| [Affirm](https://doi.org/10.1609/AAAI.V39I20.35463) | 2025 | Climate / weather | Mamba + FFT | CD | - | [Code](https://github.com/congyutao0725/AFFIRM) |
+| [CMDMamba](https://doi.org/10.3389/frai.2025.1599799) | 2025 | Finance | Mamba + CNN | CD | - | [Code](https://github.com/JadenZheng/CMDMamba) |
+| [HSTM](https://arxiv.org/abs/2503.11387) | 2025 | Finance / spatial | Spatial + temporal Mamba | CC | - | announced |
+| [HyMaTE](https://doi.org/10.1145/3765612.3767245) | 2025 | Healthcare / EHR | Mamba + Transformer | CC | - | [Code](https://github.com/healthylaife/HyMaTE) |
 | [FedRMamba](https://doi.org/10.1145/3774904.3792712) | 2025 | Federated forecasting | Mamba | CI | Federated residual updates | announced |
-| Chimera | 2024 | Spatio-temporal | 2D Mamba | CD | - | announced |
+| [Chimera](https://arxiv.org/abs/2406.04320) | 2024 | Spatio-temporal | 2D Mamba | CD | - | announced |
 | [MAT](https://arxiv.org/abs/2409.08530) | 2024 | Climate / weather | Mamba + attention | CD | - | [Code](https://github.com/mwxinnn/MAT) |
 | [MambaStock](https://arxiv.org/abs/2402.18959) | 2024 | Finance | Pure Mamba | CI | - | [Code](https://github.com/zshicode/MambaStock) |
 | [Graph-Mamba](https://arxiv.org/abs/2410.03707) | 2024 | Finance / graph | Bi-Mamba + GCN | CC | - | [Code](https://github.com/Ali-Meh619/SAMBA) |
-| DGMamba | 2024 | Domain generalization | Mamba | CI | Domain-invariant loss | [Code](https://github.com/longshaocong/DGMamba) |
+| [DGMamba](https://arxiv.org/abs/2404.07794) | 2024 | Domain generalization | Mamba | CI | Domain-invariant loss | [Code](https://github.com/longshaocong/DGMamba) |
 | [Mamba4Cast](https://arxiv.org/abs/2410.09385) | 2024 | Zero-shot forecasting | Mamba | CI | Synthetic pretraining; GIFT-Eval | [Code](https://github.com/automl/mamba4cast) |
-| SpaceTime | 2023 | Foundation / pre-Mamba SSM | SSM | CI | Foundation-style SSM forecaster | [Code](https://github.com/HazyResearch/spacetime) |
+| [SpaceTime](https://arxiv.org/abs/2303.09489) | 2023 | Foundation / pre-Mamba SSM | SSM | CI | Foundation-style SSM forecaster | [Code](https://github.com/HazyResearch/spacetime) |
+
+## Implementation Registry
+
+The survey catalogs public implementations grouped by taxonomy branch. PyTorch is the dominant framework, and most released Mamba-family forecasters depend directly or transitively on `mamba_ssm` for fused selective-scan kernels.
+
+| Branch | Released implementations | Announced / unavailable in survey metadata |
+| --- | --- | --- |
+| Pure selective-SSM | SpaceTime, S-Mamba, Is-Mamba, MambaTS, SAMBA, DTMamba, TimeMachine, SiMBA-TS, C-Mamba, CMamba, MambaStock, DGMamba, Mamba4Cast, Mamba+UQ | CMMamba, RLMamba, FedRMamba, GCMNet |
+| Bidirectional / multi-directional | Bi-Mamba, Bi-Mamba+, CIBGM, Graph-Mamba, ms-Mamba | Chimera, BiG-Mamba, HSTM, DMSTCI-BiMamba |
+| Hybrid | MAT, SST, FMamba, MambaFormer, SiMBA, MambaMixer, UmambaTSF, Affirm, KARMA, CMDMamba, HyMaTE | DIMformer, Attention Mamba, TimeMamba, CDTF-Mamba |
+| Foundation / zero-shot | SpaceTime, Mamba4Cast | - |
+
+Reproducibility caveats from the survey: kernel choice, scan precision, RevIN usage, lookback length, patching granularity, decomposition preprocessing, and token-axis choice can all change reported numbers. Like-for-like comparisons should report these details explicitly.
 
 
 ## Datasets and Benchmarks
 
 | Dataset / Benchmark | Domain | Length | Channels | Frequency | Used by examples |
 | --- | --- | --- | --- | --- | --- |
-| ETTh1, ETTh2 | Electricity | 17,420 | 7 | 1h | All systems |
-| ETTm1, ETTm2 | Electricity | 69,680 | 7 | 15m | All systems |
-| Electricity | Electricity | 26,304 | 321 | 1h | C-Mamba, CMamba, CMMamba, MambaMixer |
-| Traffic | Transportation | 17,544 | 862 | 1h | Chimera, S-Mamba, GCMNet, DIMformer |
-| Weather | Climate | 52,696 | 21 | 10m | MAT, Affirm, KARMA, CDTF-Mamba |
-| Solar-Energy | Energy | 52,560 | 137 | 10m | S-Mamba, Bi-Mamba+, RLMamba |
-| ILI | Health | 966 | 7 | 1w | TimeMachine, MambaTS, Mamba+UQ |
-| PEMS04 | Traffic | 16,992 | 307 | 5m | Chimera, HSTM, BiG-Mamba |
-| PEMS08 | Traffic | 17,856 | 170 | 5m | Chimera, HSTM |
-| Exchange-Rate | Finance | 7,588 | 8 | 1d | MambaStock, MambaTS, CMDMamba |
-| Stock A-share / S&P 500 | Finance | varies | varies | 1d | MambaStock, CMDMamba, HSTM |
-| GIFT-Eval | Multi-domain | varies | varies | varies | Mamba4Cast |
-| Monash Forecasting Repository | Multi-domain | varies | varies | varies | Mamba4Cast pretraining and evaluation |
+| [ETTh1, ETTh2](https://github.com/zhouhaoyi/ETDataset) | Electricity | 17,420 | 7 | 1h | All systems |
+| [ETTm1, ETTm2](https://github.com/zhouhaoyi/ETDataset) | Electricity | 69,680 | 7 | 15m | All systems |
+| [Electricity](https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014) | Electricity | 26,304 | 321 | 1h | C-Mamba, CMamba, CMMamba, MambaMixer |
+| [Traffic](https://pems.dot.ca.gov/) | Transportation | 17,544 | 862 | 1h | Chimera, S-Mamba, GCMNet, DIMformer |
+| [Weather](https://www.bgc-jena.mpg.de/wetter/) | Climate | 52,696 | 21 | 10m | MAT, Affirm, KARMA, CDTF-Mamba |
+| [Solar-Energy](https://github.com/laiguokun/multivariate-time-series-data) | Energy | 52,560 | 137 | 10m | S-Mamba, Bi-Mamba+, RLMamba |
+| [ILI](https://www.cdc.gov/flu/weekly/) | Health | 966 | 7 | 1w | TimeMachine, MambaTS, Mamba+UQ |
+| [PEMS04](https://github.com/guoshnBJTU/ASTGCN/tree/master/data) | Traffic | 16,992 | 307 | 5m | Chimera, HSTM, BiG-Mamba |
+| [PEMS08](https://github.com/guoshnBJTU/ASTGCN/tree/master/data) | Traffic | 17,856 | 170 | 5m | Chimera, HSTM |
+| [Exchange-Rate](https://github.com/laiguokun/multivariate-time-series-data) | Finance | 7,588 | 8 | 1d | MambaStock, MambaTS, CMDMamba |
+| [Stock A-share](https://tushare.pro/) / [S&P 500](https://finance.yahoo.com/quote/%5EGSPC/history/) | Finance | varies | varies | 1d | MambaStock, CMDMamba, HSTM |
+| [GIFT-Eval](https://github.com/SalesforceAIResearch/gift-eval) | Multi-domain | varies | varies | varies | Mamba4Cast |
+| [Monash Forecasting Repository](https://forecastingdata.org/) | Multi-domain | varies | varies | varies | Mamba4Cast pretraining and evaluation |
 
 
 ## Evaluation Metrics
@@ -189,6 +202,36 @@ Specialized models are driven by an application domain or deployment constraint 
 | Hit rate | Directional | Sign/direction accuracy | Finance, regime detection, and change-point tasks |
 | Params / FLOPs | Efficiency | Model size and theoretical compute | Hardware-independent architecture comparison |
 | Latency | Efficiency | Forward-pass wall time at fixed lookback and horizon | Deployment and long-context serving cost |
+
+## Practical Guidelines
+
+The survey distills the literature into a data-driven selector for choosing a Mamba variant.
+
+| Data regime | Recommended starting point | Rationale |
+| --- | --- | --- |
+| Small channel count, long lookback, weak cross-channel coupling | Pure selective-SSM forecasters such as TimeMachine, MambaTS, DTMamba | Linear-in-length recurrence is useful and channel mixing is less critical |
+| Large channel count with stable cross-channel structure | S-Mamba, MambaMixer, C-Mamba, CMamba, CMMamba | Electricity, Traffic, and PEMS reward explicit channel modeling |
+| Strong trend/seasonality or broadband spectra | KARMA, Affirm, TimeMamba, CDTF-Mamba | Signal decomposition or Fourier modules can isolate structure before recurrence |
+| Short lookback with strong local pattern mixing | MAT, SST, MambaFormer, FMamba | Attention or Transformer experts can dominate when long-context savings are less important |
+| Spatial graph, domain shift, federated, foundation, or zero-shot regime | Specialized models such as Chimera, BiG-Mamba, DGMamba, FedRMamba, Mamba4Cast | Deployment constraints or exogenous structure dominate generic backbone choice |
+
+Recommended reporting defaults from the survey:
+
+- Report lookback length, horizon, patch length, token axis, RevIN status, kernel implementation, precision, state dimension, expansion factor, optimizer, and training budget.
+- Use `L in {512, 1024}` when long history plausibly helps; reporting only `L=96` understates the linear-scan advantage.
+- Compare fused Mamba kernels against optimized attention kernels; PyTorch reference selective scans are not a fair speed baseline.
+- Ablate decomposition, patching, and channel-mixing separately before attributing gains to the Mamba block itself.
+
+## Contributing
+
+Contributions are welcome if they keep the repository aligned with the survey taxonomy.
+
+- Add papers under the correct taxonomy branch and keep the `Paper / Method`, `Year`, `Category`, `Venue / Source`, and `Code` columns populated.
+- Prefer official paper, DOI, arXiv, project, dataset, and code links.
+- Mark unavailable code as `announced` only when the paper explicitly announces a forthcoming release.
+- Add datasets with domain, length, channel count, sampling frequency, and representative methods.
+- Add metrics with the metric family, what it measures, and when it is suitable.
+- Avoid unverified DOI claims, speculative publication status, or stale repository links.
 
 ## Disclaimer
 

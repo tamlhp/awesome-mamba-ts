@@ -15,6 +15,7 @@ A living index of academic papers, implementations, datasets, benchmarks, and pr
 - [Hybrid Architectures](#hybrid-architectures)
 - [Specialized Designs](#specialized-designs)
 - [Implementation Registry](#implementation-registry)
+- [Performance Comparison](#performance-comparison)
 - [Datasets and Benchmarks](#datasets-and-benchmarks)
 - [Evaluation Metrics](#evaluation-metrics)
 - [Practical Guidelines](#practical-guidelines)
@@ -154,6 +155,102 @@ Specialized models are driven by an application domain or deployment constraint 
 | [Mamba4Cast](https://arxiv.org/abs/2410.09385) | 2024 | Zero-shot forecasting | Mamba | CI | Synthetic pretraining; GIFT-Eval | [Code](https://github.com/automl/mamba4cast) |
 | [SpaceTime](https://arxiv.org/abs/2303.09489) | 2023 | Foundation / pre-Mamba SSM | SSM | CI | Foundation-style SSM forecaster | [Code](https://github.com/HazyResearch/spacetime) |
 
+
+
+## Performance Comparison
+
+Reported MSE / MAE of Mamba time-series methods on the standard long-term multivariate forecasting benchmarks. Each cell averages the four MSE/MAE values the source paper reports at forecast horizons *H* ∈ {96, 192, 336, 720} (future steps predicted). The *L* column is the lookback length (past steps used as input) and is distinct from *H*: all rows average the same four *H*, but *L* differs across papers. The eight benchmarks are split across three sub-tables to keep the layout readable. **Italic** entries (e.g. `*0.469*`) are conducted by us — the source paper does not report that cell, and the value comes from our own runs. Plain entries are reported in the source paper. **Bold** marks the best value per column. `—` means the cell is not yet measured. Bottom-block rows are non-Mamba reference baselines (PatchTST, iTransformer, TimesNet, DLinear).
+
+### Part 1 / 3: ETTh1, ETTh2, ETTm1
+
+| Method | L | ETTh1 MSE | ETTh1 MAE | ETTh2 MSE | ETTh2 MAE | ETTm1 MSE | ETTm1 MAE |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| *Pure Selective-SSM Forecasters* | | | | | | | |
+| S-Mamba | 96 | 0.455 | 0.448 | 0.381 | 0.405 | 0.398 | 0.405 |
+| MambaTS | 720 | *0.469* | *0.460* | 0.339 | 0.381 | *0.435* | *0.427* |
+| DTMamba | 96 | 0.444 | 0.435 | 0.363 | 0.395 | 0.388 | 0.398 |
+| CMamba | 96 | 0.433 | 0.425 | 0.368 | 0.391 | 0.376 | 0.379 |
+| CMMamba | 336 | **0.383** | 0.416 | 0.297 | **0.363** | 0.354 | 0.382 |
+| SiMBA-TS | 96 | 0.446 | 0.432 | 0.361 | 0.391 | 0.383 | 0.396 |
+| *Bidirectional / Multi-Directional Scans* | | | | | | | |
+| Bi-Mamba+ | 96 | 0.437 | 0.431 | 0.372 | 0.399 | 0.378 | 0.396 |
+| Chimera | 96 | 0.405 | 0.424 | **0.318** | 0.375 | 0.345 | **0.377** |
+| *Hybrid Architectures* | | | | | | | |
+| SiMBA | 96 | 0.394 | **0.405** | 0.336 | 0.378 | 0.419 | 0.420 |
+| MambaMixer | 512 | 0.398 | *0.463* | **0.280** | *0.534* | **0.336** | *0.429* |
+| Affirm | var | 0.411 | 0.423 | 0.331 | 0.381 | 0.344 | **0.377** |
+| KARMA | 96 | 0.367† | 0.387† | 0.367† | 0.387† | 0.367† | 0.387† |
+| SST | 672 | 0.393 | 0.421 | 0.333 | 0.381 | 0.347 | 0.386 |
+| AttMamba | 96 | *0.469* | *0.471* | *0.576* | *0.525* | *0.434* | *0.434* |
+| FMamba | 96 | *0.466* | *0.465* | *0.577* | *0.523* | *0.433* | *0.427* |
+| MAT | 96 | *0.469* | *0.469* | *0.575* | *0.530* | *0.432* | *0.439* |
+| *Reference non-Mamba baselines* | | | | | | | |
+| PatchTST | 336 | 0.413 | 0.434 | 0.330 | 0.379 | 0.352 | 0.380 |
+| iTransformer | 96 | 0.383† | 0.399† | 0.383† | 0.399† | 0.383† | 0.399† |
+| TimesNet | 96 | 0.458 | 0.450 | 0.414 | 0.427 | 0.400 | 0.406 |
+| DLinear | 336 | 0.456 | 0.452 | 0.559 | 0.515 | 0.403 | 0.407 |
+
+`†` ETT-averaged value: the paper reports only a single average across the four ETT subsets, not per-subset numbers, so the same value is repeated across ETTh1, ETTh2, ETTm1 (and ETTm2 in Part 2 / 3 below).
+
+### Part 2 / 3: ETTm2, Electricity (ECL), Weather
+
+| Method | L | ETTm2 MSE | ETTm2 MAE | ECL MSE | ECL MAE | Weather MSE | Weather MAE |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| *Pure Selective-SSM Forecasters* | | | | | | | |
+| S-Mamba | 96 | 0.288 | 0.332 | 0.170 | 0.265 | 0.251 | 0.276 |
+| MambaTS | 720 | 0.247 | 0.310 | 0.155 | 0.251 | **0.219** | **0.257** |
+| DTMamba | 96 | 0.278 | 0.323 | 0.196 | 0.285 | 0.258 | 0.279 |
+| CMamba | 96 | 0.273 | 0.316 | 0.169 | 0.258 | 0.237 | 0.259 |
+| CMMamba | 336 | 0.254 | 0.321 | *0.203* | *0.308* | 0.225 | 0.261 |
+| SiMBA-TS | 96 | 0.281 | 0.327 | *0.204* | *0.305* | *0.275* | *0.321* |
+| *Bidirectional / Multi-Directional Scans* | | | | | | | |
+| Bi-Mamba+ | 96 | 0.281 | 0.328 | 0.166 | 0.263 | 0.243 | 0.272 |
+| Chimera | 96 | 0.250 | 0.316 | **0.154** | **0.249** | **0.219** | 0.258 |
+| *Hybrid Architectures* | | | | | | | |
+| SiMBA | 96 | 0.287 | 0.341 | 0.186 | 0.275 | 0.254 | 0.284 |
+| MambaMixer | 512 | 0.246 | *0.416* | 0.177 | *0.311* | 0.239 | *0.312* |
+| Affirm | var | 0.252 | 0.315 | 0.157 | 0.250 | 0.226 | 0.261 |
+| KARMA | 96 | 0.367† | 0.387† | 0.168 | 0.261 | 0.250 | 0.277 |
+| SST | 672 | **0.234** | **0.296** | 0.170 | 0.267 | 0.227 | 0.262 |
+| AttMamba | 96 | *0.370* | *0.419* | 0.167 | 0.262 | 0.247 | 0.276 |
+| FMamba | 96 | *0.367* | *0.419* | 0.169 | 0.269 | 0.247 | 0.293 |
+| MAT | 96 | *0.371* | *0.415* | *0.213* | *0.302* | 0.246 | 0.286 |
+| *Reference non-Mamba baselines* | | | | | | | |
+| PatchTST | 336 | 0.255 | 0.315 | 0.161 | 0.252 | 0.256 | 0.279 |
+| iTransformer | 96 | 0.383† | 0.399† | 0.178 | 0.270 | 0.258 | 0.278 |
+| TimesNet | 96 | 0.291 | 0.333 | 0.192 | 0.295 | 0.259 | 0.287 |
+| DLinear | 336 | 0.350 | 0.401 | 0.166 | 0.264 | 0.248 | 0.300 |
+
+### Part 3 / 3: Traffic, Solar-Energy
+
+| Method | L | Traffic MSE | Traffic MAE | Solar MSE | Solar MAE |
+| --- | --- | --- | --- | --- | --- |
+| *Pure Selective-SSM Forecasters* | | | | | |
+| S-Mamba | 96 | 0.414 | 0.276 | 0.240 | 0.273 |
+| MambaTS | 720 | 0.373 | 0.262 | **0.184** | **0.247** |
+| DTMamba | 96 | 0.507 | 0.326 | *0.255* | *0.290* |
+| CMamba | 96 | 0.444 | 0.265 | *0.247* | *0.292* |
+| CMMamba | 336 | *0.627* | *0.343* | *0.253* | *0.297* |
+| SiMBA-TS | 96 | *0.635* | *0.348* | *0.262* | *0.285* |
+| *Bidirectional / Multi-Directional Scans* | | | | | |
+| Bi-Mamba+ | 96 | 0.404 | 0.272 | 0.227 | 0.255 |
+| Chimera | 96 | 0.403 | 0.286 | *0.260* | *0.289* |
+| *Hybrid Architectures* | | | | | |
+| SiMBA | 96 | 0.493 | 0.291 | *0.248* | *0.286* |
+| MambaMixer | 512 | 0.420 | *0.351* | *0.247* | *0.285* |
+| Affirm | var | 0.392 | 0.268 | *0.249* | *0.295* |
+| KARMA | 96 | 0.453 | 0.284 | *0.253* | *0.289* |
+| SST | 672 | **0.350** | **0.250** | *0.255* | *0.291* |
+| AttMamba | 96 | *0.631* | *0.358* | 0.235 | 0.278 |
+| FMamba | 96 | *0.635* | *0.356* | 0.213 | 0.270 |
+| MAT | 96 | *0.637* | *0.352* | *0.262* | *0.297* |
+| *Reference non-Mamba baselines* | | | | | |
+| PatchTST | 336 | 0.391 | 0.264 | *0.251* | *0.290* |
+| iTransformer | 96 | 0.428 | 0.282 | 0.233 | 0.262 |
+| TimesNet | 96 | 0.620 | 0.336 | *0.257* | *0.284* |
+| DLinear | 336 | 0.434 | 0.295 | *0.253* | *0.287* |
+
+**Best per column in bold.** Cross-row comparisons are only strictly meaningful within a fixed *L* (lookback). MambaTS, SST, MambaMixer, CMMamba, PatchTST, and DLinear use longer input windows (*L* ∈ {336, 512, 672, 720}) than the *L* = 96 default of most other Mamba methods; "var" means the lookback varies across datasets in the source paper.
 
 
 ## Datasets and Benchmarks

@@ -16,9 +16,10 @@ A living index of academic papers, implementations, datasets, benchmarks, and pr
 - [Application Domains](#application-domains)
 - [Datasets and Benchmarks](#datasets-and-benchmarks)
 - [Evaluation Metrics](#evaluation-metrics)
+- [Disclaimer](#disclaimer)
+
 <!-- - [Practical Guidelines](#practical-guidelines) -->
 <!-- - [Open Frontiers](#open-frontiers) -->
-- [Disclaimer](#disclaimer)
 
 <!-- ## Citation
 
@@ -187,7 +188,7 @@ Beyond the per-architecture organization, surveyed methods cluster around **seve
 | Activity recognition and sensors | HARMamba, RadMamba, MambaSleep | Short-window multivariate; edge-deployed inference |
 | Cross-domain and foundation-scale | Mamba4Cast, SpaceTime, DGMamba, FedRMamba, ss-Mamba, EHRMamba | Synthetic pretraining, zero-shot transfer (GIFT-Eval), federated / domain-generalized variants |
 
-## Performance Comparison
+<!-- ## Performance Comparison
 
 Reported MSE / MAE of Mamba time-series methods on the standard long-term multivariate forecasting benchmarks. Each cell averages the four MSE/MAE values the source paper reports at forecast horizons *H* ∈ {96, 192, 336, 720} (future steps predicted). The *L* column is the lookback length (past steps used as input) and is distinct from *H*: all rows average the same four *H*, but *L* differs across papers. The eight benchmarks are split across three sub-tables to keep the layout readable. **Italic** entries (e.g. `*0.469*`) are conducted by us — the source paper does not report that cell, and the value comes from our own runs. Plain entries are reported in the source paper. **Bold** marks the best value per column. `—` means the cell is not yet measured. Bottom-block rows are non-Mamba reference baselines (PatchTST, iTransformer, TimesNet, DLinear).
 
@@ -280,7 +281,7 @@ Reported MSE / MAE of Mamba time-series methods on the standard long-term multiv
 | TimesNet | 96 | 0.620 | 0.336 | *0.257* | *0.284* |
 | DLinear | 336 | 0.434 | 0.295 | *0.253* | *0.287* |
 
-**Best per column in bold.** Cross-row comparisons are only strictly meaningful within a fixed *L* (lookback). MambaTS, SST, MambaMixer, CMMamba, PatchTST, and DLinear use longer input windows (*L* ∈ {336, 512, 672, 720}) than the *L* = 96 default of most other Mamba methods; "var" means the lookback varies across datasets in the source paper.
+**Best per column in bold.** Cross-row comparisons are only strictly meaningful within a fixed *L* (lookback). MambaTS, SST, MambaMixer, CMMamba, PatchTST, and DLinear use longer input windows (*L* ∈ {336, 512, 672, 720}) than the *L* = 96 default of most other Mamba methods; "var" means the lookback varies across datasets in the source paper. -->
 
 
 ## Datasets and Benchmarks

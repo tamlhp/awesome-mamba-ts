@@ -5,6 +5,8 @@
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=tamlhp.awesome-mamba-ts)
 <img src="https://img.shields.io/badge/Contributions-Welcome-278ea5" alt="Contrib"/>
 
+https://www.preprints.org/manuscript/202605.0995
+
 A living index of academic papers, implementations, datasets, benchmarks, and practical guidance for **Mamba and selective state-space models for time-series analysis (TSA)**, covering the **five canonical TSA tasks** (forecasting, classification, anomaly detection, imputation, unified multi-task analytics) and organized around the **three architectural patterns** of the survey: Pure Mamba, Bidirectional / Multi-Directional, and Hybrid.
 
 - [Taxonomy](#taxonomy)
@@ -21,20 +23,19 @@ A living index of academic papers, implementations, datasets, benchmarks, and pr
 <!-- - [Practical Guidelines](#practical-guidelines) -->
 <!-- - [Open Frontiers](#open-frontiers) -->
 
-<!-- ## Citation
+## Citation
 
 If you use this repository, please cite the survey manuscript. A public DOI or finalized venue entry will be added once the paper metadata is finalized.
 
 ```bibtex
-@misc{pham2026mamba-time-series,
-  title  = {Mamba for Time Series Analysis: A Contemporary Survey},
-  author = {Anonymous Authors},
-  year   = {2026},
-  note   = {Survey manuscript},
-  url    = {https://github.com/tamlhp/awesome-mamba-ts}
+@article{nguyen2026mamba,
+  title={Mamba for Time Series Analysis: A Contemporary Survey},
+  author={Nguyen, Thanh Tam and Jin, Ming and Pham, Trinh and Pan, Shirui and Nguyen, Quoc Viet Hung},
+  year={2026},
+  publisher={Preprints}
 }
 ```
--->
+
 
 ## Taxonomy
 

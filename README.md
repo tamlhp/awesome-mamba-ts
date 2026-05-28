@@ -1,7 +1,7 @@
 # Awesome Mamba for Time Series
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-[![GitHub stars](https://img.shields.io/github/stars/tamlhp/awesome-mamba-ts?style=social)](https://github.com/tamlhp/awesome-mamba-ts/stargazers)
+<!--[![GitHub stars](https://img.shields.io/github/stars/tamlhp/awesome-mamba-ts?style=social)](https://github.com/tamlhp/awesome-mamba-ts/stargazers)-->
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=tamlhp.awesome-mamba-ts)
 <img src="https://img.shields.io/badge/Contributions-Welcome-278ea5" alt="Contrib"/>
 

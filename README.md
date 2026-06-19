@@ -5,6 +5,8 @@
 <img src="https://img.shields.io/badge/Contributions-Welcome-278ea5" alt="Contrib"/>
 <!--[![GitHub stars](https://img.shields.io/github/stars/tamlhp/awesome-mamba-ts?style=social)](https://github.com/tamlhp/awesome-mamba-ts/stargazers)-->
 
+![Roadmap timeline of Mamba-based time-series methods](figs/mamba-ts.png)
+
 https://www.preprints.org/manuscript/202605.0995
 
 A living index of academic papers, implementations, datasets, benchmarks, and practical guidance for **Mamba and selective state-space models for time-series analysis (TSA)**, covering the **five canonical TSA tasks** (forecasting, classification, anomaly detection, imputation, unified multi-task analytics) and organized around the **three architectural patterns** of the survey: Pure Mamba, Bidirectional / Multi-Directional, and Hybrid.
@@ -38,8 +40,6 @@ If you use this repository, please cite the survey manuscript. A public DOI or f
 
 
 ## Taxonomy
-
-![Roadmap timeline of Mamba-based time-series methods](figs/mamba-ts.png)
 
 The survey organizes Mamba-TSA methods along **five canonical tasks** (forecasting, classification, anomaly detection, imputation, multi-task analytics) and **five design axes**:
 
